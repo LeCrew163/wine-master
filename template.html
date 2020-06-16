@@ -114,7 +114,10 @@
           </div>
         </div>
         <div class="row">
-          {% for wine in wines %}
+          {% for wine in sorted_wine_dict %}
+          <div class="col-12 section-title text-center mb-5">
+            <h2 class="d-block">{{wine}}</h2>
+          </div>
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
               <img src=/images/{{wine.Картинка}} alt="Image" class="img-fluid">
