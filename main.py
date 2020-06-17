@@ -41,6 +41,7 @@ def main():
     rendered_page = template.render(
         years_amount=actual_company_age,
         sorted_wine_dict=sorted_wine_dict,
+        wine_dict=wine_dict
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
