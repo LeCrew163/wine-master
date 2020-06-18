@@ -114,25 +114,28 @@
           </div>
         </div>
         <div class="row">
-          {% for wine in sorted_wine_dict %}
+        {% for wine in sorted_wine_dict %}
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">{{wine}}</h2>
           </div>
-          {% for wine in wine_dict %}
+        {% for wine in sorted_wine_dict[wine] %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
               <img src=/images/{{wine.Картинка}} alt="Image" class="img-fluid">
               <div>
                 <h3 class="heading mt-3 mb-3 text-dark">{{wine.Название}}</h3>
                 <p>
+                {% if wine.Сорт %}
                   Сорт винограда - {{wine.Сорт}}<br />
+                {% else %}
+                {% endif %}
                   <span class="price">{{wine.Цена}}</span>
                 </p>
               </div>
             </div>
           </div>
-          {% endfor %}
-          {% endfor %}
+        {% endfor %}
+        {% endfor %}
         </div>
       </div>
     </div>

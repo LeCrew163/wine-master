@@ -6,7 +6,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def convert_wine_assortment_excel_to_dict():
-    excel_wine_assortment = pandas.read_excel('wine2.xlsx', sheet_name='Лист1')
+    excel_wine_assortment = pandas.read_excel('wine2.xlsx', sheet_name='Лист1', keep_default_na=False)
     wine_dict = excel_wine_assortment.to_dict(orient='record')
     return wine_dict
 
@@ -40,8 +40,7 @@ def main():
 
     rendered_page = template.render(
         years_amount=actual_company_age,
-        sorted_wine_dict=sorted_wine_dict,
-        wine_dict=wine_dict
+        sorted_wine_dict=sorted_wine_dict
     )
 
     with open('index.html', 'w', encoding="utf8") as file:

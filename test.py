@@ -13,8 +13,11 @@ def sort_wine_by_category(wine_dict):
 excel_wine_assortment = pandas.read_excel('wine2.xlsx', sheet_name='Лист1')
 wine_dict = excel_wine_assortment.to_dict(orient='record')
 
-pprint(sort_wine_by_category(wine_dict))
+#Converts from defaultdict to dictionary and than sorts by first key
+wine_dict = dict(sort_wine_by_category(wine_dict))
+wine_dict = sorted(wine_dict.items(), key=lambda e: e[0])
 
+print(wine_dict)
 
 
 
